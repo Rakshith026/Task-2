@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Page</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      background-color:blue;
+      padding: 15px;
+    }
+
+    nav span {
+      color: white;
+      margin-right: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    nav span:hover {
+      text-decoration: underline;
+    }
+
+    #content {
+      padding: 30px;
+      background-color: #183b8f;
+      color: white;
+      min-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <span onclick="loadPage('home')">Home</span>
+    <span onclick="loadPage('about')">About</span>
+    <span onclick="loadPage('programs')">Programs</span>
+    <span onclick="loadPage('contact')">Contact</span>
+  </nav>
+
+  <div id="content">
+    <h2>Welcome</h2>
+    <p>Click the menu to load content</p>
+  </div>
+
+  <script>
+    const pageData = {
+      home: {
+        title: "Home",
+        content: "Welcome to DT Tech. We create modern web solutions."
+      },
+      about: {
+        title: "About Us",
+        content: "DT Tech provides frontend and backend development training."
+      },
+      programs: {
+        title: "Programs",
+        content: "Frontend, Backend, Full Stack Development programs."
+      },
+      contact: {
+        title: "Contact",
+        content: "Email: deepthought123@gmail.com | Phone: +91 7207001400"
+      }
+    };
+
+    function loadPage(section) {
+      document.getElementById("content").innerHTML = `
+        <h2>${pageData[section].title}</h2>
+        <p>${pageData[section].content}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
